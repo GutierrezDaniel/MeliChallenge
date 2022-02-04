@@ -6,8 +6,15 @@ const {
     isPathIdValid
 } = require("../middlewares/items");
 
+const {
+    searchQueryItems
+} = require("../controllers/getItemsData");
 
-route.get("/items/:id", isPathIdValid, (req, res) => (res.status(200).send("path valida")));
-route.get("/items", isQueryValid, (req, res) => (res.status(200).send("query valida")));
+
+route.get("/:id", isPathIdValid, (req, res) => (res.status(200).send("path valida")));
+route.get("/", isQueryValid, searchQueryItems, (req, res,next, data) => {
+    console.log({req,next,data});
+    res.status(200).send("query valida")
+});
 
 module.exports = route;
