@@ -1,12 +1,16 @@
 const express = require("express");
+const app = express();
+const cors = require('cors');
+
+const itemsRoute = require("./routes/items");
 
 const PORT = process.env.PORT || 3001;
 
-const app = express();
 
-app.get("/api", (req, res) => {
-    res.json({ message: "Hello from server!" });
-  });
+app.use(cors({ origin: "*" }));
+app.use("/api", itemsRoute);
+
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
