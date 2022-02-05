@@ -1,17 +1,10 @@
-const express = require("express");
-const app = express();
+const server = require("./routes/items");
 const cors = require('cors');
-const PORT = require("./config/portConfig");
 
-const itemsRoute = require("./routes/items");
+const PORT = process.env.PORT || 3001;
 
+server.use(cors());
 
-
-app.use(cors({ origin: "*" }));
-app.use("/api/items", itemsRoute);
-
-
-
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+server.listen(PORT, () => {
+  if(process.env.NODE_ENV !== 'production') console.log(`Server listening on ${PORT}`);
 });
