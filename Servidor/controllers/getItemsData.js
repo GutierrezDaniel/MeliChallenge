@@ -6,11 +6,11 @@ const { expectedQueryResponse,  expectedPathIdResponse} = require("../model/reqF
 const handleRequest = async (url, res) => {
   const responce = await axios.get(url).catch((error) => {
     if (error.response)
-      return res.status(500).send("the query was not successful");
+      return res.status(500).send({error:"the query was not successful"});
     if (error.request)
       return res
         .status(500)
-        .send("the request was made but no response was received");
+        .send({error:"the request was made but no response was received"});
   });
   return await responce;
 };
@@ -36,11 +36,11 @@ const searchByIDItem = (req, res) => {
     )
     .catch((error) => {
       if (error.response)
-        return res.status(500).send("the query was not successful");
+        return res.status(500).send({error:"the query was not successful"});
       if (error.request)
         return res
           .status(500)
-          .send("the request was made but no response was received");
+          .send({error:"the request was made but no response was received"});
     });
 };
 
