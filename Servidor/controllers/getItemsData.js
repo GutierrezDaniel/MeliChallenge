@@ -1,6 +1,6 @@
 const axios = require("axios").default;
 
-const urlsBackend = require("../model/urls_backendMeli");
+const urlsBackend = require("../config/urls_backendMeli");
 const { expectedQueryResponse,  expectedPathIdResponse} = require("../model/reqFormater");
 
 const handleRequest = async (url, res) => {

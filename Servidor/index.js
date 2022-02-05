@@ -1,10 +1,10 @@
 const express = require("express");
 const app = express();
 const cors = require('cors');
+const PORT = require("./config/portConfig");
 
 const itemsRoute = require("./routes/items");
 
-const PORT = process.env.PORT || 3001;
 
 
 app.use(cors({ origin: "*" }));
