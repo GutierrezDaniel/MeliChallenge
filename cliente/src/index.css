@@ -1,0 +1,15 @@
+:root {
+  --soft-gray: #eeeeee;
+  --medium-gray: #999999;
+  --dark-gray: #666666;
+  --black: #333333;
+  --meli-default: #FFE600;
+  --meli-accent: #3483FA;
+}
+
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif; 
+  background: var(--soft-gray); 
+}
