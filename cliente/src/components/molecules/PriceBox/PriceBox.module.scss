@@ -1,0 +1,33 @@
+.container{
+    width: 30%;
+    margin: 2%;
+    color: var(--black);
+}
+
+.quantity{
+    font-size: 0.875rem; //14px
+    margin-top: 2rem; //32px
+}
+
+.title{
+    margin-top: 1rem; //16px
+    font-size: 1.5rem; //24px
+}
+
+.priceBox{
+    margin: 2rem 0 2rem 0; //32px    
+    
+
+    .price{    
+        font-size: 2.875rem; //46px
+    }
+    .decimals{
+        font-size: 1.5rem; //24px
+        vertical-align: text-top;
+    }
+}
+
+
+.button{
+    margin-right: 2rem; //32px
+}
