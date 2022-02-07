@@ -19,7 +19,9 @@
   width: 100%;
   border-radius: 5px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: var(--meli-accent-darken);
+    outline: none;
   }
 }

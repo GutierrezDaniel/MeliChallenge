@@ -3,12 +3,14 @@ import React from 'react';
 import styles from './App.module.scss';
 
 import SearchBar from './components/molecules/SearchBar';
-import ProductDetails from './components/pages/productDetails';
+import ProductsList from './components/pages/productList';
+// import ProductDetails from './components/pages/productDetails';
 
 const App = () => (  
   <div className={styles.body__container}>
     <SearchBar/>
-    <ProductDetails/>
+    {/* <ProductDetails/> */}
+    <ProductsList/>
   </div>
 );
 

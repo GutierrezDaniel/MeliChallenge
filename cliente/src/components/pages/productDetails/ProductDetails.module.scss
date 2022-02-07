@@ -28,6 +28,13 @@
   }
 }
 
+.breadCrumb{
+  width: 80%;
+  margin: 1rem 0 1rem 0; //16px
+  font-size: 1rem;
+  color: var(--medium-gray);
+}
+
 .section{
     box-sizing: content-box;
     margin: 2%;

@@ -18,7 +18,11 @@ const ProductDetails = () => {
 
   const propDecimals = decimals !== '0' ? "00" : decimals+"";
 
+  const tempBreadcrumb = "Electronica, Audio y Video > iPod > Reproductores > iPod touch > 32 GB"
+
   return (
+    <>
+    <p className={styles.breadCrumb}>{tempBreadcrumb}</p>
     <main className={styles.main}>
       <div className={styles.productContainer}>
         <div className={styles.imageContainer}>
@@ -38,6 +42,7 @@ const ProductDetails = () => {
         <p>{textDescription}</p>
       </section>
     </main>
+    </>
   );
 };
 
