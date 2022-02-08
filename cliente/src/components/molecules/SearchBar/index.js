@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import meliLogo from "../../../assets/Logo_ML@2x.png.png";
 import searchIcon from "../../../assets/ic_Search@2x.png.png";
 import styles from "./SearchBar.module.scss";
 
 const SearchBar = () => {
+
+  const navigate = useNavigate();
+  const searchBar = useRef();
+
   const SubmitSearch = (e) => {
-    e.preventDefault();
-    console.log("submit");
+    e.preventDefault();     
+    const pressSearchButton = e?.type === "submit";   
+    if(pressSearchButton) {
+      return navigate(`/items?q=${e?.target[0]?.value}`,{ replace: true });
+    }
+    navigate(`/items?q=${e?.target?.value}`, { replace: true });
+    searchBar.current.value = '';
   };
 
   return (
@@ -17,6 +27,7 @@ const SearchBar = () => {
           src={meliLogo}
           alt="Mercadolibre logo"
           className={styles.meliLogo}
+          onClick={() => navigate("/", { replace: true })}
         />
         <form onSubmit={(e) => SubmitSearch(e)} className={styles.form}>
           <input
@@ -27,8 +38,10 @@ const SearchBar = () => {
             spellCheck="false"
             autoComplete="off"
             tabIndex="1"
+            ref={searchBar}
             onKeyDown={(e) => {
-              if (e.keyCode === 13) SubmitSearch(e);
+              const pressEnter = e.keyCode === 13;
+              if (pressEnter) SubmitSearch(e);
             }}
             className={styles.input}
           />

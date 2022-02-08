@@ -45,8 +45,7 @@ const ProductDetails = () => {
             price={product?.item?.price?.amount}
             decimals={ product?.item?.price?.decimals || "00"}
             condition={product?.item?.condition}
-            quantity={product?.item?.sold_quantity}
-            onclick={() => {}}
+            quantity={product?.item?.sold_quantity}            
           />
         </div>
         <section className={styles.section}>
