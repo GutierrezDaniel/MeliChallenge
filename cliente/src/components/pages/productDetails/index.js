@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import PriceBox from "../../molecules/PriceBox";
+import Spinner from "../../atoms/spinner";
 import styles from "./ProductDetails.module.scss";
 
 
@@ -25,12 +26,14 @@ const ProductDetails = () => {
     getProductDetails(id);
   }, [id]);
 
-  if (loading) return <h1>Cargando...</h1>;
+  if (loading) return <Spinner />; 
 
   if(product.hasOwnProperty('error')) return <h1>{product?.error}</h1>; 
 
   const tempBreadcrumb =
     "Electronica, Audio y Video > iPod > Reproductores > iPod touch > 32 GB";
+
+  const strDecimals = String(product?.item?.price?.decimals)
 
   return (
     <>
@@ -43,7 +46,7 @@ const ProductDetails = () => {
           <PriceBox
             title={product?.item?.title}
             price={product?.item?.price?.amount}
-            decimals={ product?.item?.price?.decimals || "00"}
+            decimals={ strDecimals === '0' ? "00" : strDecimals }
             condition={product?.item?.condition}
             quantity={product?.item?.sold_quantity}            
           />

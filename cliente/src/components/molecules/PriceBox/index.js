@@ -21,7 +21,7 @@ const PriceBox = ({ title, price, condition, quantity, decimals, onclick }) => {
 PriceBox.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  decimals: PropTypes.number,
+  decimals: PropTypes.string,
   condition: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
 };

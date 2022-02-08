@@ -14,7 +14,9 @@ const SearchBar = () => {
     e.preventDefault();     
     const pressSearchButton = e?.type === "submit";   
     if(pressSearchButton) {
-      return navigate(`/items?q=${e?.target[0]?.value}`,{ replace: true });
+      navigate(`/items?q=${e?.target[0]?.value}`,{ replace: true });
+      searchBar.current.value = '';
+      return;        
     }
     navigate(`/items?q=${e?.target?.value}`, { replace: true });
     searchBar.current.value = '';
@@ -27,7 +29,10 @@ const SearchBar = () => {
           src={meliLogo}
           alt="Mercadolibre logo"
           className={styles.meliLogo}
-          onClick={() => navigate("/", { replace: true })}
+          onClick={() => {
+            navigate("/", { replace: true });
+            searchBar.current.value = '';
+          }}
         />
         <form onSubmit={(e) => SubmitSearch(e)} className={styles.form}>
           <input

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import ProductCard from "../../molecules/ProductCard";
+import Spinner from "../../atoms/spinner";
 import styles from "./ProductList.module.scss";
 
 const ProductsList = () => {
@@ -27,13 +28,11 @@ const ProductsList = () => {
 
   
 
-  if (loading) return <h1>Cargando...</h1>;
+  if (loading) return <Spinner />;
 
   if (productList.hasOwnProperty("error")) return <h1>{productList?.error}</h1>;
 
-  if (!query) return <h1>ingrese una Query valida</h1>;
-
-  console.log({ productList });
+  if (!query) return <h1>ingrese una Query valida</h1>;  
 
   return (
     <main className={styles.main}>
