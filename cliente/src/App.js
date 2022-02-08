@@ -1,16 +1,23 @@
-import React from 'react';
+import React from "react";
 
-import styles from './App.module.scss';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import SearchBar from './components/molecules/SearchBar';
-import ProductsList from './components/pages/productList';
-// import ProductDetails from './components/pages/productDetails';
+import styles from "./App.module.scss";
+import SearchBar from "./components/molecules/SearchBar";
+import ProductsList from "./components/pages/productList";
+import ProductDetails from "./components/pages/productDetails";
 
-const App = () => (  
+const App = () => (
   <div className={styles.body__container}>
-    <SearchBar/>
-    {/* <ProductDetails/> */}
-    <ProductsList/>
+    <SearchBar />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<></>} />
+        <Route path="/items" element={<ProductsList />} />
+        <Route path="/items/:id" element={<ProductDetails />}/>
+        <Route path="*" element={<h1>404 no encontrado!</h1>} />
+      </Routes>
+    </BrowserRouter>
   </div>
 );
 

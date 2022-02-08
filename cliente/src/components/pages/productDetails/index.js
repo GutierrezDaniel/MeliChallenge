@@ -1,47 +1,46 @@
 import React from "react";
-import mockData from "./mockData";
-import PriceBox from "../../molecules/PriceBox";
+import { useParams } from "react-router-dom";
 
+import PriceBox from "../../molecules/PriceBox";
 import styles from "./ProductDetails.module.scss";
+import mockData from "./mockData";
 
 const ProductDetails = () => {
+  const { id } = useParams();
+  console.log('ingreso id:', id)
 
-  const { 
-     title,
-     price, 
-     picture, 
-     condition, 
-     sold_quantity, 
-     description } = mockData.item;
+  const { title, price, picture, condition, sold_quantity, description } =
+    mockData.item;
   const { amount, decimals } = price;
   const textDescription = String(description);
 
-  const propDecimals = decimals !== '0' ? "00" : decimals+"";
+  const propDecimals = decimals !== "0" ? "00" : decimals + "";
 
-  const tempBreadcrumb = "Electronica, Audio y Video > iPod > Reproductores > iPod touch > 32 GB"
+  const tempBreadcrumb =
+    "Electronica, Audio y Video > iPod > Reproductores > iPod touch > 32 GB";
 
   return (
     <>
-    <p className={styles.breadCrumb}>{tempBreadcrumb}</p>
-    <main className={styles.main}>
-      <div className={styles.productContainer}>
-        <div className={styles.imageContainer}>
-          <img src={picture} alt={title} />
+      <p className={styles.breadCrumb}>{tempBreadcrumb}</p>
+      <main className={styles.main}>
+        <div className={styles.productContainer}>
+          <div className={styles.imageContainer}>
+            <img src={picture} alt={title} />
+          </div>
+          <PriceBox
+            title={title}
+            price={amount}
+            decimals={propDecimals}
+            condition={condition}
+            quantity={sold_quantity}
+            onclick={() => {}}
+          />
         </div>
-        <PriceBox         
-          title={title}
-          price={amount}
-          decimals={propDecimals}
-          condition={condition}
-          quantity={sold_quantity}
-          onclick={() => {}}          
-        />
-      </div>
-      <section className={styles.section}>
-        <h2>Descripción del producto</h2>
-        <p>{textDescription}</p>
-      </section>
-    </main>
+        <section className={styles.section}>
+          <h2>Descripción del producto</h2>
+          <p>{textDescription}</p>
+        </section>
+      </main>
     </>
   );
 };
