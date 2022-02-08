@@ -11,38 +11,40 @@
   justify-content: space-between;
 }
 
-.priceBox{
-    width: 30%;
-    margin: 2%;
+.priceBox {
+  width: 30%;
+  margin: 2%;
 }
 
 .imageContainer {
+  margin: 1.5rem;
   display: flex;
+  width: 100%;
+  height: 30rem;
   justify-content: center;
-  width: 42.5rem; // 680px
 
   & > img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+    width: 42.5rem; // 680px
+    height: 30rem;
+    object-fit: cover;
   }
 }
 
-.breadCrumb{
+.breadCrumb {
   width: 80%;
   margin: 1rem 0 1rem 0; //16px
   font-size: 1rem;
   color: var(--medium-gray);
 }
 
-.section{
-    box-sizing: content-box;
-    margin: 2%;
-    font-family: inherit;
-    color: var(--black);
-    line-height: 1.6;
+.section {
+  box-sizing: content-box;
+  margin: 2%;
+  font-family: inherit;
+  color: var(--black);
+  line-height: 1.6;
 
-    & > p {
-        color: var(--medium-gray);
-    }
+  & > p {
+    color: var(--medium-gray);
+  }
 }
