@@ -5,7 +5,6 @@ import PriceBox from "../../molecules/PriceBox";
 import Spinner from "../../atoms/spinner";
 import styles from "./ProductDetails.module.scss";
 
-
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
@@ -26,19 +25,17 @@ const ProductDetails = () => {
     getProductDetails(id);
   }, [id]);
 
-  if (loading) return <Spinner />; 
+  if (loading) return <Spinner />;
 
-  if(product.hasOwnProperty('error')) return <h1>{product?.error}</h1>; 
+  if (product.hasOwnProperty("error")) return <h1>{product?.error}</h1>;
 
-  const tempBreadcrumb =
-    "Electronica, Audio y Video > iPod > Reproductores > iPod touch > 32 GB";
+  const strDecimals = String(product?.item?.price?.decimals);
 
-  const strDecimals = String(product?.item?.price?.decimals)
+  
 
   return (
     <>
-      <p className={styles.breadCrumb}>{tempBreadcrumb}</p>
-      <main className={styles.main}>
+      <main className={styles.main}>        
         <div className={styles.productContainer}>
           <div className={styles.imageContainer}>
             <img src={product?.item?.picture} alt={product?.item?.title} />
@@ -46,14 +43,14 @@ const ProductDetails = () => {
           <PriceBox
             title={product?.item?.title}
             price={product?.item?.price?.amount}
-            decimals={ strDecimals === '0' ? "00" : strDecimals }
+            decimals={strDecimals === "0" ? "00" : strDecimals}
             condition={product?.item?.condition}
-            quantity={product?.item?.sold_quantity}            
+            quantity={product?.item?.sold_quantity}
           />
         </div>
         <section className={styles.section}>
           <h2>Descripción del producto</h2>
-          <p style={{whiteSpace: "pre-line"}}>{product?.item?.description}</p>
+          <p style={{ whiteSpace: "pre-line" }}>{product?.item?.description}</p>
         </section>
       </main>
     </>

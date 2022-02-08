@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import freeshippingIcon from "../../../assets/ic_shipping@2x.png.png";
 import styles from "./ProductCard.module.scss";
@@ -27,5 +28,9 @@ export const ProductCard = ({item}) => {
     </li>
   );
 };
+
+ProductCard.propTypes = {
+  item: PropTypes.object.isRequired,
+}
 
 export default ProductCard;
