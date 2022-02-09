@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 
 import ProductCard from "../../molecules/ProductCard";
 import Spinner from "../../atoms/spinner";
+import ErrorMsg from "../../atoms/errorMsg";
 import styles from "./ProductList.module.scss";
 
 const ProductsList = () => {
@@ -28,9 +29,9 @@ const ProductsList = () => {
 
   if (loading) return <Spinner />;
 
-  if (productList.hasOwnProperty("error")) return <h1>{productList?.error}</h1>;
+  if (productList.hasOwnProperty("error")) return <ErrorMsg errorMsg={productList?.error}/>;
 
-  if (!query) return <h1>ingrese una Query valida</h1>;
+  if (!query) return <ErrorMsg errorMsg="ingrese una Query valida"/>;
 
   return (
     <main className={styles.main}>

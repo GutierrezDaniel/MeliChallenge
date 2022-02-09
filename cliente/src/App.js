@@ -6,6 +6,8 @@ import styles from "./App.module.scss";
 import SearchBar from "./components/molecules/SearchBar";
 import ProductsList from "./components/pages/productList";
 import ProductDetails from "./components/pages/productDetails";
+import Landing from "./components/pages/landing";
+import ErrorMsg from "./components/atoms/errorMsg";
 
 
 const App = () => (
@@ -13,10 +15,10 @@ const App = () => (
     <BrowserRouter>
       <SearchBar />
       <Routes>
-        <Route path="/" element={<></>} />
+        <Route path="/" element={<Landing/>} />
         <Route path="/items" element={<ProductsList />} />
         <Route path="/items/:id" element={<ProductDetails />} />        
-        <Route path="*" element={<h1>404 no encontrado!</h1>} />
+        <Route path="*" element={<ErrorMsg errorMsg="404 Pagina no disponible"/>}/>
       </Routes>
     </BrowserRouter>
   </div>

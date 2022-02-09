@@ -12,7 +12,7 @@ const PriceBox = ({ title, price, condition, quantity, decimals, onclick }) => {
         <p className={styles.price}>{`$${price}`}<span className={styles.decimals}>{decimals}</span></p>        
       </div>
       <div className={styles.button}>
-        <ButtonMeli buttonText="Comprar" onClick={onclick} />
+        <ButtonMeli buttonText="Comprar" onClick={onclick} value="Comprar"/>
       </div>
     </div>
   );

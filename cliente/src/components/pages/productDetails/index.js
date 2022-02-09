@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import PriceBox from "../../molecules/PriceBox";
 import Spinner from "../../atoms/spinner";
+import ErrorMsg from "../../atoms/errorMsg";
 import styles from "./ProductDetails.module.scss";
 
 const ProductDetails = () => {
@@ -27,7 +28,7 @@ const ProductDetails = () => {
 
   if (loading) return <Spinner />;
 
-  if (product.hasOwnProperty("error")) return <h1>{product?.error}</h1>;
+  if (product.hasOwnProperty("error")) return <ErrorMsg errorMsg={product?.error}/>;
 
   const strDecimals = String(product?.item?.price?.decimals);
 

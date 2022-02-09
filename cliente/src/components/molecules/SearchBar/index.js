@@ -38,7 +38,7 @@ const SearchBar = () => {
           <input
             type="text"
             placeholder="Nunca dejes de buscar"
-            arialabel="Ingresa el producto a buscar"
+            aria-label="Ingresa el producto a buscar"
             autoCorrect="off"
             spellCheck="false"
             autoComplete="off"
@@ -50,7 +50,7 @@ const SearchBar = () => {
             }}
             className={styles.input}
           />
-          <button type="submit" className={styles.input__button}>
+          <button type="submit" value="Submit" className={styles.input__button}>
             <img
               src={searchIcon}
               alt="Buscar"
