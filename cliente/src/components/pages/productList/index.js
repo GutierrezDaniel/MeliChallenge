@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import ProductCard from "../../molecules/ProductCard";
 import Spinner from "../../atoms/spinner";
 import ErrorMsg from "../../atoms/errorMsg";
+import {BASE_URL} from "../../../config/baseUrl";
 import styles from "./ProductList.module.scss";
 
 const ProductsList = () => {
@@ -14,7 +15,7 @@ const ProductsList = () => {
   const query = searchParams.get("q");
 
   const getProductDetails = async (query) => {
-    return fetch(`http://localhost:3001/api/items?q=${query}`)
+    return fetch(`${BASE_URL}?q=${query}`)
       .then((res) => res.json())
       .then((data) => {
         setProductList(data);

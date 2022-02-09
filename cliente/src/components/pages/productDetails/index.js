@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import PriceBox from "../../molecules/PriceBox";
 import Spinner from "../../atoms/spinner";
 import ErrorMsg from "../../atoms/errorMsg";
+import {BASE_URL} from "../../../config/baseUrl";
 import styles from "./ProductDetails.module.scss";
 
 const ProductDetails = () => {
@@ -13,7 +14,7 @@ const ProductDetails = () => {
   const { id } = useParams();
 
   const getProductDetails = async (id) => {
-    return fetch(`http://localhost:3001/api/items/${id}`)
+    return fetch(`${BASE_URL}/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
