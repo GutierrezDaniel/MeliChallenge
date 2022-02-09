@@ -2,9 +2,12 @@
 
 # dependencies
 cliente/node_modules
+/build
 Servidor/node_modules
 /.pnp
 .pnp.js
+cliente/package-lock.json
+Servidor/package-lock.json
 
 # testing
 /coverage
